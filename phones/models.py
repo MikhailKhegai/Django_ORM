@@ -6,8 +6,7 @@ class Phone(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=64, verbose_name='Модель телефона')
     price = models.IntegerField(verbose_name='Цена')
-    image = models.ImageField(upload_to='', verbose_name='Изображение')
+    image = models.URLField(verbose_name='Изображение')
     release_date = models.DateField(verbose_name= 'Дата выпуска')
     lte_exists = models.BooleanField()
-    slug = models.SlugField(verbose_name='URL')
-    pass
+    slug = models.SlugField(unique='True', verbose_name='URL')

@@ -1,5 +1,6 @@
 import csv
 
+from django.utils.text import slugify
 from django.core.management.base import BaseCommand
 from phones.models import Phone
 
@@ -15,6 +16,6 @@ class Command(BaseCommand):
         for phone in phones:
             # TODO: Добавьте сохранение модели
             p = Phone(id=phone['id'], name=phone['name'], image=phone['image'], price=phone['price'], release_date=phone['release_date'],
-                      lte_exists=phone['lte_exists'], slug=phone['name'])
+                      lte_exists=phone['lte_exists'], slug=slugify(phone['image']))
             p.save()
 
