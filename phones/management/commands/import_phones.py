@@ -16,6 +16,6 @@ class Command(BaseCommand):
         for phone in phones:
             # TODO: Добавьте сохранение модели
             p = Phone(id=phone['id'], name=phone['name'], image=phone['image'], price=phone['price'], release_date=phone['release_date'],
-                      lte_exists=phone['lte_exists'], slug=slugify(phone['image']))
+                      lte_exists=phone['lte_exists'], slug=slugify(phone['name']))
             p.save()
 
