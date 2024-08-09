@@ -8,12 +8,12 @@ def index(request):
 
 def show_catalog(request):
     template = 'catalog.html'
-    phones = Phone.objects.all()
-    context = {'phones' : phones}
+    phones = Phone.objects.filter(slug='slug')
+    context = {'phone' : phones}
     return render(request, template, context)
 
 def show_product(request, slug):
     template = 'product.html'
-    phone = Phone.objects.all()
-    context = {'phone' : phone}
+    phones = Phone.objects.get(slug='slug')
+    context = {'phones' : phones}
     return render(request, template, context)
